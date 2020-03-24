@@ -46,6 +46,7 @@ module.exports = class extends Command {
       .addField('Member', `${user.tag} (<@${user.id}>)`)
       .addField('Level', user.settings.level, true)
       .addField('XP', `${user.settings.xp}/${this.getRemainingXPForNextLevel(user.settings.level+1)}`, true)
+      .addField('${user.settings.level} -> ${user.settings.level+1}', `${this.getRemainingXPForNextLevel(user.settings.level+1)-user.settings.xp)} XP`, true)
       .addField('Rank', `${rank} / ${leaderboard.length}`, true)
       .setFooter(user.id)
       .setTimestamp();
